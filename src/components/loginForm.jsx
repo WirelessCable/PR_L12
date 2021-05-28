@@ -11,6 +11,11 @@ class LoginForm extends Component {
         errors: {}
     };
 
+    handleChangeRoute = () => {
+       this.props.history.push('/');
+       window.location.reload();
+    };
+
     validate = () => {
         const errors = {};
 
@@ -34,7 +39,7 @@ class LoginForm extends Component {
 
         axios({
             method: 'post',
-            url: 'http://localhost:3001/api/user/auth',
+            url: 'http://localhost:3002/api/user/auth',
             data: {
                 login: this.state.account.username,
                 password: this.state.account.password
